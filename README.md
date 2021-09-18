@@ -1,1 +1,2 @@
-Count keywords of different levels from the C or C++ code files that are read in.
+New content has been updated, which can effectively prevent the interference caused by strings, comments and macro definitions.
+
