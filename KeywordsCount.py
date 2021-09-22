@@ -20,9 +20,8 @@ C_AREA_SEPARATOR = (';', '{', '}', 'switch', 'case', 'if', 'else')
 
 
 def remove_string(str):
-    str = re.sub(r'\\\n', ' ', str)
-    str = re.sub(r'".*?"(?<!\\")', r'""', str)  # Multiline characters within double quotation marks
-    # without escape
+    str = re.sub(r'\\(\\|\n)', ' ', str)    # Eliminate the influence of escape symbols
+    str = re.sub(r'".*?"(?<!\\")', r'""', str)  # Multiline characters within double quotation marks without escape
     str = re.sub(r"('.*?')(?<!\\')", r'""', str)
     return str
 
@@ -312,16 +311,7 @@ class SyntaxError(Exception):
 
 def keyword_count():
     c = Count()
-    # code = c.readfile()
-    code = r"""
-        if 
-        
-        else
-        
-        }
-    
-    
-    """
+    code = c.readfile()
     c.statistics(code)
     c.print()
 

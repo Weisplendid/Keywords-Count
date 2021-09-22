@@ -1,5 +1,4 @@
 # Update log
 
-1. Exception handling was added
-2. Optimized the code
+1.  Fixed the bug that escape symbol escapes escape symbol unrecognize.
 

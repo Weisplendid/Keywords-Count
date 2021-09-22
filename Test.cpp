@@ -31,12 +31,14 @@ string s2 = "float int double\
 			if else int double default\
 			case switch\
 			";
-//string with transition symbol
+//string with escape symbol
 string s3 = "int \" int double \"char\"";
 string s4 = "float int double\
-			if else int\" dou\"ble\" default\
+			if else int\" do\\u\"ble\" default\
 			case switch\
 			";
+//escape symbol escape the escape symbol
+string s5 = "int \\ int \\";
 
 //Variable name for interference
 int int_double_float = 1;
