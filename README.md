@@ -1,3 +1,4 @@
+## Version introduction
 1. New functions added，now can:
 
    - output the number of "switch case" structures, and output the number of "case" corresponding to each group.
