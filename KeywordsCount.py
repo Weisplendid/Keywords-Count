@@ -1,6 +1,7 @@
 import re
 
 dirname = input("Enter the path of the file: ")
+level = int(input("Enter the completion level(1-4): "))
 
 C_KEYWORDS = ('auto', 'break', 'case', 'char', 'const', 'continue', 'default', 'do',
               'double', 'else', 'enum', 'extern', 'float', 'for', 'goto', 'if',
@@ -275,14 +276,18 @@ class Count(object):
             elif temp == 'can_pop_if':
                 self.pop_if()
 
-        print("total num:", self.keyword_count)
-        print('switch num:', self.switch_count)
-        print('case num:', end=' ')
-        for case_num in self.case_count:
-            print(case_num, end=' ')
-        print()
-        print('if-else num:', self.if_else_count)
-        print('if-elseif-else num:', self.if_elif_else_count)
+        if level >= 1:
+            print("total num:", self.keyword_count)
+        if level >= 2:
+            print('switch num:', self.switch_count)
+            print('case num:', end=' ')
+            for case_num in self.case_count:
+                print(case_num, end=' ')
+            print()
+        if level >= 3:
+            print('if-else num:', self.if_else_count)
+        if level >= 4:
+            print('if-elseif-else num:', self.if_elif_else_count)
 
 
 def main():
