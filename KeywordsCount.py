@@ -26,7 +26,7 @@ def remove_annotation(str):
     # print(str)
     return str
 
-
+ 
 def remove_newline(str):
     str = re.sub(r'\t', ' ', str)
     str = re.sub(r';', " ;\n", str)
