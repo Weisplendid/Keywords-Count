@@ -4,7 +4,7 @@
 *This is a test*
 ****************
 */
-
+ 
 #define A 5
 # if (A<3)					//macro definition:if 
 #include <iostream>
@@ -13,7 +13,7 @@
 #define con (int i = 1)	   //macro definition:int
 #endif
 #include <string>
-
+ 
 using namespace std;
 
 
