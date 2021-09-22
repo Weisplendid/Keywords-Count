@@ -39,3 +39,7 @@ More details please read:  <a href="https://bbs.csdn.net/topics/600798588" targe
 
 ### version_1.3
 1.  Fixed the bug that escape symbol escapes escape symbol unrecognize.
+
+### version_1.4
+1.   Fixed the bug with nested comments.
+2.  Fixed the bug that Chinese cannot appear in the file.
