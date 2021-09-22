@@ -312,16 +312,7 @@ class SyntaxError(Exception):
 
 def keyword_count():
     c = Count()
-    # code = c.readfile()
-    code = r"""
-        if 
-        
-        else
-        
-        }
-    
-    
-    """
+    code = c.readfile()
     c.statistics(code)
     c.print()
 
