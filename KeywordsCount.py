@@ -1,7 +1,9 @@
+# coding utf-8
 import os
 import re
 
 dirname = input("Enter the path of the file: ")
+# dirname = "Test.cpp"
 if not os.path.exists(dirname):
     print('Error, The path doesnt exist')
     exit(-1)
@@ -10,6 +12,7 @@ if level not in ['1', '2', '3', '4']:
     print('Error, input the level within range(1-4)')
     exit(-1)
 level = int(level)
+# level = 4
 
 C_KEYWORDS = ('auto', 'break', 'case', 'char', 'const', 'continue', 'default', 'do',
               'double', 'else', 'enum', 'extern', 'float', 'for', 'goto', 'if',
@@ -27,9 +30,9 @@ def remove_string(str):
 
 
 def remove_annotation(str):
-    str = re.sub(r'/\*((.|\n)*?)\*/(\n| )*', '\n', str)  # block comment
-    str = re.sub(r'/\*((.|\n)*?)$', '\n', str)  # first half of block comment
-    str = re.sub(r'//(.*?)(\n|$)', '\n', str)  # line comment
+    # str = re.sub(r'/\*((.|\n)*?)\*/(\n| )*', '\n', str)  # block comment
+    # str = re.sub(r'//(.*?)(\n|$)', '\n', str)  # line comment
+    str = re.sub(r'(//(.*?)(\n|$))|(/\*((.|\n)*?)\*/(\n| )*)','\n',str)  # line comment and block comment
     str = re.sub(r'#(.*?)(\n|$)', '\n', str)  # macro definition
     # print(str)
     return str
@@ -123,8 +126,7 @@ class Count(object):
                 self.stack[-1] = 'can_pop_else'
             elif self.stack[-1] == 'can_pop_else':
                 self.pop_else()
-        else:
-            raise SyntaxError("Incorrect code format")
+
 
     def pop_if(self):
         self.stack.pop()
@@ -244,7 +246,7 @@ class Count(object):
                 self.pop_else()
 
     def readfile(self):
-        with open(dirname, encoding='utf8') as file:
+        with open(dirname, encoding='gb2312') as file:
             full_text = file.read()
         full_text = remove_string(full_text)
         full_text = remove_annotation(full_text)
@@ -286,6 +288,8 @@ class Count(object):
                 self.pop_elif()
             elif temp == 'can_pop_if':
                 self.pop_if()
+            elif temp == '{':
+                raise SyntaxError("Incorrect code format")
 
     def print(self):
         if level >= 1:

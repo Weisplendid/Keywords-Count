@@ -1,4 +1,3 @@
-
 /*
 ****************
 *This is a test*
@@ -13,7 +12,7 @@
 #define con (int i = 1)	   //macro definition:int
 #endif
 #include <string>
-
+ 
 using namespace std;
 
 
@@ -22,6 +21,17 @@ using namespace std;
 
 /**double break; return													block comment for interference*/			
 
+
+int/**/a = 1;
+
+//			/**
+
+string s = "This string will be compiled";
+int num1 =1;
+
+//			**/This block comment is affected
+
+/*             //This line comment is affected        */  string s0 = "This string will be compiled"; int num2 = 1;
 
 
 
@@ -39,6 +49,9 @@ string s4 = "float int double\
 			";
 //escape symbol escape the escape symbol
 string s5 = "int \\ int \\";
+
+string s6 = "这是句中文";
+string s7 = "Это предложение на русском языке"; 
 
 //Variable name for interference
 int int_double_float = 1;
@@ -148,21 +161,11 @@ int main() {
 /*****************************
 *		Final Answer:
 *
-*	total num: 54
+*	total num: 57
 *	switch num: 7
 *	case num: 4 3 2 2 1 2 2
 *	if-else num: 3
 *	if-elseif-else num: 3
 ******************************/
 }
-
-/**			//first half of block comment(at the end of the file)
-	
-
-int double switch { if() }
-
-
-
-
-
 
