@@ -1,6 +1,10 @@
+import os
 import re
 
 dirname = input("Enter the path of the file: ")
+if not os.path.exists(dirname):
+    print('\031[1;35;0m Error, the path doesnt exist \031[0m')
+    exit(-1)
 level = int(input("Enter the completion level(1-4): "))
 
 C_KEYWORDS = ('auto', 'break', 'case', 'char', 'const', 'continue', 'default', 'do',
