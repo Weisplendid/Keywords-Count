@@ -1,6 +1,6 @@
 import os
 import re
-  
+ 
 dirname = input("Enter the path of the file: ")
 if not os.path.exists(dirname):
     print('Error, The path doesnt exist')
