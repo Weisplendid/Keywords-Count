@@ -20,8 +20,6 @@ More details please read:  <a href="https://bbs.csdn.net/topics/600798588" targe
 	
 	note: only "if" or "if-else if" are not counted.
 	
-	
-	
 2. Fixed some bugs.
 
 ### version_1.0
@@ -34,3 +32,7 @@ More details please read:  <a href="https://bbs.csdn.net/topics/600798588" targe
 
 ### version_1.1
 1. now it is possible to enter a relative or absolute path to the file, and to alert and stop when the file does not exist.
+
+### version_1.2
+1. Exception handling was added.
+2. Optimized the code.

@@ -3,9 +3,13 @@ import re
  
 dirname = input("Enter the path of the file: ")
 if not os.path.exists(dirname):
-    print('\031[1;35;0m Error, the path doesnt exist \031[0m')
+    print('Error, The path doesnt exist')
     exit(-1)
-level = int(input("Enter the completion level(1-4): "))
+level = input("Enter the completion level(1-4): ")
+if level not in ['1', '2', '3', '4']:
+    print('Error, input the level within range(1-4)')
+    exit(-1)
+level = int(level)
 
 C_KEYWORDS = ('auto', 'break', 'case', 'char', 'const', 'continue', 'default', 'do',
               'double', 'else', 'enum', 'extern', 'float', 'for', 'goto', 'if',
@@ -63,7 +67,7 @@ class Count(object):
         self.stack.pop()
         if len(self.stack) > 0:
             if self.stack[-1] == 'switch':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif self.stack[-1] == 'case':
                 self.pop_case()
             elif self.stack[-1] == 'if':
@@ -121,7 +125,7 @@ class Count(object):
             elif self.stack[-1] == 'can_pop_else':
                 self.pop_else()
         else:
-            pass  # error
+            raise SyntaxError("Incorrect code format")
 
     def pop_if(self):
         self.stack.pop()
@@ -159,13 +163,13 @@ class Count(object):
             elif temp == 'case':
                 self.pop_case()
             elif temp == 'if':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'elif':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_elif':
                 self.stack.pop()
             elif temp == 'else':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_else':
                 self.pop_else()
 
@@ -183,11 +187,11 @@ class Count(object):
             elif temp == 'case':
                 self.pop_case()
             elif temp == 'if':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'elif':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'else':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_else':
                 self.pop_else()
 
@@ -209,15 +213,15 @@ class Count(object):
             elif temp == 'case':
                 self.pop_case()
             elif temp == 'if':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_if':
                 self.pop_if()
             elif temp == 'elif':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_elif':
                 self.pop_elif()
             elif temp == 'else':
-                pass  # error
+                raise SyntaxError("Incorrect code format")
             elif temp == 'can_pop_else':
                 self.pop_else()
         self.stack.pop()
@@ -248,6 +252,9 @@ class Count(object):
         full_text = remove_symbol(full_text)
         full_text = remove_newline(full_text)
         # print(full_text)
+        return full_text
+
+    def statistics(self, full_text):
         lines = full_text.split('\n')
         for line in lines:
             tup = line.split(' ')
@@ -271,6 +278,7 @@ class Count(object):
                             self.stack[-2] = 'elif'
                             self.stack.pop()
 
+    def pop_stack(self):
         while len(self.stack) > 0:
             temp = self.stack[-1]
             if temp == 'can_pop_else':
@@ -280,6 +288,7 @@ class Count(object):
             elif temp == 'can_pop_if':
                 self.pop_if()
 
+    def print(self):
         if level >= 1:
             print("total num:", self.keyword_count)
         if level >= 2:
@@ -294,9 +303,35 @@ class Count(object):
             print('if-elseif-else num:', self.if_elif_else_count)
 
 
-def main():
+class SyntaxError(Exception):
+
+    def __init__(self, code: Count, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.code = code
+
+
+def keyword_count():
     c = Count()
-    c.readfile()
+    # code = c.readfile()
+    code = r"""
+        if 
+        
+        else
+        
+        }
+    
+    
+    """
+    c.statistics(code)
+    c.print()
+
+
+def main():
+    try:
+        keyword_count()
+    except SyntaxError as e:
+        print('Error,', e.code)
+        return
 
 
 if __name__ == '__main__':
