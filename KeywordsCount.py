@@ -1,7 +1,7 @@
 # coding utf-8
 import os
 import re
- 
+
 dirname = input("Enter the path of the file: ")
 # dirname = "Test.cpp"
 if not os.path.exists(dirname):
