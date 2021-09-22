@@ -1,7 +1,7 @@
 # coding utf-8
 import os
 import re
-
+ 
 dirname = input("Enter the path of the file: ")
 # dirname = "Test.cpp"
 if not os.path.exists(dirname):
@@ -37,7 +37,7 @@ def remove_annotation(str):
     # print(str)
     return str
 
-
+ 
 def remove_newline(str):
     str = re.sub(r'\t', ' ', str)
     str = re.sub(r';', " ;\n", str)
