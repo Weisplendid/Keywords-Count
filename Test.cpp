@@ -13,7 +13,7 @@
 #define con (int i = 1)	   //macro definition:int
 #endif
 #include <string>
-
+ 
 using namespace std;
 
 
