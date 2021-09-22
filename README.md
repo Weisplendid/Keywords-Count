@@ -2,6 +2,7 @@
 Count keywords of different levels from the C or C++ code files that are read in.  
 More details please read:  <a href="https://bbs.csdn.net/topics/600798588" target="_blank">*more details*</a>
 
+
 ## Version introduction
  
 ### version_0.1
@@ -36,3 +37,6 @@ More details please read:  <a href="https://bbs.csdn.net/topics/600798588" targe
 ### version_1.2
 1. Exception handling was added.
 2. Optimized the code.
+
+### version_1.3
+1.  Fixed the bug that escape symbol escapes escape symbol unrecognize.

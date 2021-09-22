@@ -20,9 +20,8 @@ C_AREA_SEPARATOR = (';', '{', '}', 'switch', 'case', 'if', 'else')
 
 
 def remove_string(str):
-    str = re.sub(r'\\\n', ' ', str)
-    str = re.sub(r'".*?"(?<!\\")', r'""', str)  # Multiline characters within double quotation marks
-    # without escape
+    str = re.sub(r'\\(\\|\n)', ' ', str)    # Eliminate the influence of escape symbols
+    str = re.sub(r'".*?"(?<!\\")', r'""', str)  # Multiline characters within double quotation marks without escape
     str = re.sub(r"('.*?')(?<!\\')", r'""', str)
     return str
 
