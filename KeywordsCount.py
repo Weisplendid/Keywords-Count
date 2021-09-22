@@ -37,10 +37,6 @@ def remove_symbol(str):
 def main():
 
     keyword_count = 0
-    switch_count = 0
-    case_count = []
-    if_else_count = 0
-    if_elif_else_count = 0
 
     with open(dirname, encoding='utf8') as file:
         full_text = file.read()
