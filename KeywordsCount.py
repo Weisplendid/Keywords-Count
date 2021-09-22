@@ -1,5 +1,5 @@
 import re
-
+ 
 dirname = input("Enter the path of the file: ")
 
 C_KEYWORDS = ('auto', 'break', 'case', 'char', 'const', 'continue', 'default', 'do',
