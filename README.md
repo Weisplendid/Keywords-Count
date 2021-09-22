@@ -3,7 +3,7 @@ Count keywords of different levels from the C or C++ code files that are read in
 More details please read:  <a href="https://bbs.csdn.net/topics/600798588" target="_blank">*more details*</a>
 
 ## Code instruction
-please read my CSDN    <a href="https://blog.csdn.net/weisplendid/article/details/120418726" target="_blank">Link to Article</a>
+please read my CSDN    <a href="https://blog.csdn.net/weisplendid/article/details/120418726" target="_blank">blog</a>
 
 ## Version introduction
  
