@@ -4,7 +4,7 @@
 *This is a test*
 ****************
 */
-
+ 
 #define A 5
 # if (A<3)					//macro definition:if 
 #include <iostream>
